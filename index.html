@@ -14,6 +14,7 @@
       var V = {
         // View
         postTemplate: Handlebars.templates['post'],
+        imageTemplate: Handlebars.templates['postimage'],
         youtubeTemplate: Handlebars.templates['postyoutube'],
         posts: $("#posts ul")
       };
@@ -30,12 +31,18 @@
           if (p.domain === "youtube.com") {
             p.youtubeId = p.url.split('v=')[1];
             list.push(V.youtubeTemplate(p));
+          } else if (isUrlAnImage(p.url)) {
+            list.push(V.imageTemplate(p));
           } else {
             list.push(V.postTemplate(p));
           }
         }
         V.posts.append(list);
       };
+
+      function isUrlAnImage(url) {
+        return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+      }
 
     });
   </script>

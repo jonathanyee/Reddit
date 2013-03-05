@@ -2,3 +2,70 @@ ul {
   list-style: none;
   padding: 0;
 }
+
+img {
+  max-height: 480px;
+  max-width: 640px;
+}
+
+.row {
+  width: 100%;
+}
+
+.row:before, .row:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.row:after {
+  clear: both;
+}
+
+.row .span12 {
+  width: 100%;
+}
+
+.row .span11 {
+  width: 91.48936170212765%;
+}
+
+.row .span10 {
+  width: 82.97872340425532%;
+}
+
+.row .span9 {
+  width: 74.46808510638297%;
+}
+
+.row .span8 {
+  width: 65.95744680851064%;
+}
+
+.row .span7 {
+  width: 57.44680851063829%;
+}
+
+.row .span6 {
+  width: 48.93617021276595%;
+}
+
+.row .span5 {
+  width: 40.42553191489362%;
+}
+
+.row .span4 {
+  width: 31.914893617021278%;
+}
+
+.row .span3 {
+  width: 23.404255319148934%;
+}
+
+.row .span2 {
+  width: 14.893617021276595%;
+}
+
+.row .span1 {
+  width: 6.382978723404255%;
+}
