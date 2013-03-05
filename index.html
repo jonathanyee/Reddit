@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Reddit</title>
+  <link rel="stylesheet" href="styles/style.css" type="text/css" media="screen">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="scripts/handlebars.runtime.js"></script>
+  <script src="scripts/templates.js"></script>
+
+  <script>
+    $(function() {
+      var baseURL = "http://www.reddit.com/",
+          suffix  = ".json?jsonp=?";
+
+      var V = {
+        // View
+        postTemplate: Handlebars.templates['post'],
+        youtubeTemplate: Handlebars.templates['postyoutube'],
+        posts: $("#posts ul")
+      };
+
+      $.getJSON(baseURL + suffix, function(reddit) {
+        console.log(reddit.data);
+        parsePosts(reddit.data.children);
+      });
+
+      var parsePosts = function(posts) {
+        var list = [];
+        for (var i = 0; i < posts.length; i++) {
+          var p = posts[i].data;
+          if (p.domain === "youtube.com") {
+            p.youtubeId = p.url.split('v=')[1];
+            list.push(V.youtubeTemplate(p));
+          } else {
+            list.push(V.postTemplate(p));
+          }
+        }
+        V.posts.append(list);
+      };
+
+    });
+  </script>
+</head>
+<body>
+
+<div id="container">
+  <div id="posts">
+    <ul></ul>
+  </div>
+</div>
+
+</body>
+</html>

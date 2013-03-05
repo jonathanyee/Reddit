@@ -1,0 +1,49 @@
+(function() {
+  var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
+templates['post'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [2,'>= 1.0.0-rc.3'];
+helpers = helpers || Handlebars.helpers; data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "<li>\n<a href=\"";
+  if (stack1 = helpers.url) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.url; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\">";
+  if (stack1 = helpers.title) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.title; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</a>\n";
+  if (stack1 = helpers.subreddit) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.subreddit; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\n</li>";
+  return buffer;
+  });
+templates['postyoutube'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [2,'>= 1.0.0-rc.3'];
+helpers = helpers || Handlebars.helpers; data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "<li>\n<a href=\"";
+  if (stack1 = helpers.url) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.url; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\">";
+  if (stack1 = helpers.title) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.title; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</a>\n";
+  if (stack1 = helpers.subreddit) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.subreddit; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\n<iframe id=\"ytplayer\" type=\"text/html\" width=\"640\" height=\"390\"\n  src=\"http://www.youtube.com/embed/";
+  if (stack1 = helpers.youtubeId) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.youtubeId; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\"\n  frameborder=\"0\"/>\n</li>";
+  return buffer;
+  });
+})();
