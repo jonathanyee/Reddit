@@ -9,14 +9,17 @@
   <script>
     $(function() {
       var baseURL = "http://www.reddit.com/",
-          suffix  = ".json?jsonp=?";
+          suffix  = ".json?jsonp=?",
+          currentPostIndex = 0;
 
       var V = {
         // View
         postTemplate: Handlebars.templates['post'],
         imageTemplate: Handlebars.templates['postimage'],
         youtubeTemplate: Handlebars.templates['postyoutube'],
-        posts: $("#posts ul")
+        body: $("body"),
+        posts: $("#posts ul"),
+        postItems: ""
       };
 
       $.getJSON(baseURL + suffix, function(reddit) {
@@ -37,12 +40,28 @@
             list.push(V.postTemplate(p));
           }
         }
+
         V.posts.append(list);
+        V.postItems = V.posts.find("li");
       };
 
       function isUrlAnImage(url) {
         return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
       }
+
+      V.body.keypress(function(event) {
+        if (event.which == 106) {
+          // pressing j
+          if (currentPostIndex + 1 < V.postItems.length) {
+            V.body.scrollTop($(V.postItems[++currentPostIndex]).offset().top);
+          }
+        } else if (event.which == 107) {
+          // pressing k
+          if (currentPostIndex - 1 >= 0) {
+            V.body.scrollTop($(V.postItems[--currentPostIndex]).offset().top);
+          }
+        }
+      });
 
     });
   </script>
