@@ -8,6 +8,10 @@ img {
   max-width: 640px;
 }
 
+.selected {
+  background-color: #ccc;
+}
+
 .row {
   width: 100%;
 }

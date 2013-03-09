@@ -42,7 +42,8 @@
         }
 
         V.posts.append(list);
-        V.postItems = V.posts.find("li");
+        V.postItems = V.posts.find(".post-link");
+        $(V.postItems[currentPostIndex]).addClass("selected");
       };
 
       function isUrlAnImage(url) {
@@ -53,13 +54,20 @@
         if (event.which == 106) {
           // pressing j
           if (currentPostIndex + 1 < V.postItems.length) {
-            V.body.scrollTop($(V.postItems[++currentPostIndex]).offset().top);
+            $(V.postItems[currentPostIndex]).removeClass("selected");
+            $(V.postItems[++currentPostIndex]).addClass("selected");
+            V.body.scrollTop($(V.postItems[currentPostIndex]).offset().top);
           }
         } else if (event.which == 107) {
           // pressing k
           if (currentPostIndex - 1 >= 0) {
-            V.body.scrollTop($(V.postItems[--currentPostIndex]).offset().top);
+            $(V.postItems[currentPostIndex]).removeClass("selected");
+            $(V.postItems[--currentPostIndex]).addClass("selected");
+            V.body.scrollTop($(V.postItems[currentPostIndex]).offset().top);
           }
+        } else if (event.which == 111) {
+          // pressing o
+          window.open($(V.postItems[currentPostIndex]).attr("href"));
         }
       });
 
