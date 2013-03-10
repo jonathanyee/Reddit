@@ -16,6 +16,7 @@
         // View
         postTemplate: Handlebars.templates['post'],
         imageTemplate: Handlebars.templates['postimage'],
+        textTemplate: Handlebars.templates['posttext'],
         youtubeTemplate: Handlebars.templates['postyoutube'],
         body: $("body"),
         posts: $("#posts ul"),
@@ -36,6 +37,8 @@
             list.push(V.youtubeTemplate(p));
           } else if (isUrlAnImage(p.url)) {
             list.push(V.imageTemplate(p));
+          } else if (p.selftext !== '') {
+            list.push(V.textTemplate(p));
           } else {
             list.push(V.postTemplate(p));
           }
@@ -52,21 +55,21 @@
 
       V.body.keypress(function(event) {
         if (event.which == 106) {
-          // pressing j
+          // pressing j moves selection down
           if (currentPostIndex + 1 < V.postItems.length) {
             $(V.postItems[currentPostIndex]).removeClass("selected");
             $(V.postItems[++currentPostIndex]).addClass("selected");
             V.body.scrollTop($(V.postItems[currentPostIndex]).offset().top);
           }
         } else if (event.which == 107) {
-          // pressing k
+          // pressing k moves selection up
           if (currentPostIndex - 1 >= 0) {
             $(V.postItems[currentPostIndex]).removeClass("selected");
             $(V.postItems[--currentPostIndex]).addClass("selected");
             V.body.scrollTop($(V.postItems[currentPostIndex]).offset().top);
           }
         } else if (event.which == 111) {
-          // pressing o
+          // pressing o opens the link of selection
           window.open($(V.postItems[currentPostIndex]).attr("href"));
         }
       });
