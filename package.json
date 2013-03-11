@@ -13,6 +13,7 @@
     "grunt-contrib-jshint": "*",
     "grunt-contrib-watch": "*",
     "jshint": "*",
-    "grunt-contrib-cssmin": "~0.4.1"
+    "grunt-contrib-cssmin": "~0.4.1",
+    "grunt-contrib-handlebars": "~0.5.6"
   }
 }

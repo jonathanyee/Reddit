@@ -57,6 +57,17 @@ module.exports = function(grunt) {
         }
       }
     },
+    handlebars: {
+      compile: {
+        options: {
+          namespace: 'Reddit',
+          wrapped: true
+        },
+        files: {
+          'libs/templates.js': 'templates/*.handlebars'
+        }
+      }
+    },
     watch: {
       scripts: {
         files: ['index.html', 'libs/*.js', 'styles/*.css'],
@@ -73,9 +84,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-handlebars');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'cssmin']);
+  grunt.registerTask('default', ['jshint', 'handlebars', 'concat', 'uglify', 'cssmin']);
 
 };

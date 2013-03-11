@@ -1,6 +1,6 @@
-(function() {
-  var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
-templates['post'] = template(function (Handlebars,depth0,helpers,partials,data) {
+this["Reddit"] = this["Reddit"] || {};
+
+this["Reddit"]["templates/post.handlebars"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Handlebars.helpers; data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
@@ -21,7 +21,8 @@ helpers = helpers || Handlebars.helpers; data = data || {};
     + "\n  </div>\n</li>";
   return buffer;
   });
-templates['postimage'] = template(function (Handlebars,depth0,helpers,partials,data) {
+
+this["Reddit"]["templates/postimage.handlebars"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Handlebars.helpers; data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
@@ -46,7 +47,8 @@ helpers = helpers || Handlebars.helpers; data = data || {};
     + "\" />\n  </div>\n</li>";
   return buffer;
   });
-templates['posttext'] = template(function (Handlebars,depth0,helpers,partials,data) {
+
+this["Reddit"]["templates/posttext.handlebars"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Handlebars.helpers; data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
@@ -71,7 +73,8 @@ helpers = helpers || Handlebars.helpers; data = data || {};
     + "\n  </div>\n</li>";
   return buffer;
   });
-templates['postyoutube'] = template(function (Handlebars,depth0,helpers,partials,data) {
+
+this["Reddit"]["templates/postyoutube.handlebars"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Handlebars.helpers; data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
@@ -96,4 +99,3 @@ helpers = helpers || Handlebars.helpers; data = data || {};
     + "\"\n  frameborder=\"0\"/>\n  </div>\n</li>";
   return buffer;
   });
-})();
