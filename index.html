@@ -7,8 +7,8 @@
 
   <script>
     $(function() {
-      var baseURL = "http://www.reddit.com/",
-          suffix  = ".json?jsonp=?",
+      var baseURL = 'http://www.reddit.com/',
+          suffix  = '.json?jsonp=?',
           currentPostIndex = 0;
 
       var V = {
@@ -17,9 +17,14 @@
         imageTemplate: Reddit['templates/postimage.handlebars'],
         textTemplate: Reddit['templates/posttext.handlebars'],
         youtubeTemplate: Reddit['templates/postyoutube.handlebars'],
-        body: $("body"),
-        posts: $("#posts ul"),
-        postItems: ""
+        body: $('body'),
+        posts: $('#posts ul'),
+        postItems: ''
+      };
+
+      var M = {
+        // Model
+        posts: []
       };
 
       $.getJSON(baseURL + suffix, function(reddit) {
@@ -31,7 +36,9 @@
         var list = [];
         for (var i = 0; i < posts.length; i++) {
           var p = posts[i].data;
-          if (p.domain === "youtube.com") {
+          M.posts.push(p);
+
+          if (p.domain === 'youtube.com') {
             p.youtubeId = p.url.split('v=')[1];
             list.push(V.youtubeTemplate(p));
           } else if (isUrlAnImage(p.url)) {
@@ -44,8 +51,8 @@
         }
 
         V.posts.append(list);
-        V.postItems = V.posts.find(".post-link");
-        $(V.postItems[currentPostIndex]).addClass("selected");
+        V.postItems = V.posts.find('.post-link');
+        $(V.postItems[currentPostIndex]).addClass('selected');
       };
 
       function isUrlAnImage(url) {
@@ -53,23 +60,26 @@
       }
 
       V.body.keypress(function(event) {
-        if (event.which == 106) {
+        if (event.which == 99) {
+          // pressing c opens comments page
+          window.open(baseURL + M.posts[currentPostIndex].permalink);
+        } else if (event.which == 106) {
           // pressing j moves selection down
           if (currentPostIndex + 1 < V.postItems.length) {
-            $(V.postItems[currentPostIndex]).removeClass("selected");
-            $(V.postItems[++currentPostIndex]).addClass("selected");
+            $(V.postItems[currentPostIndex]).removeClass('selected');
+            $(V.postItems[++currentPostIndex]).addClass('selected');
             V.body.scrollTop($(V.postItems[currentPostIndex]).offset().top);
           }
         } else if (event.which == 107) {
           // pressing k moves selection up
           if (currentPostIndex - 1 >= 0) {
-            $(V.postItems[currentPostIndex]).removeClass("selected");
-            $(V.postItems[--currentPostIndex]).addClass("selected");
+            $(V.postItems[currentPostIndex]).removeClass('selected');
+            $(V.postItems[--currentPostIndex]).addClass('selected');
             V.body.scrollTop($(V.postItems[currentPostIndex]).offset().top);
           }
         } else if (event.which == 111) {
           // pressing o opens the link of selection
-          window.open($(V.postItems[currentPostIndex]).attr("href"));
+          window.open($(V.postItems[currentPostIndex]).attr('href'));
         }
       });
 
