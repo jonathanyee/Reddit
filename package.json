@@ -1,0 +1,18 @@
+{
+  "name": "Reddit",
+  "author": {
+    "name": "Jonathan"
+  },
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-nodeunit": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-watch": "*",
+    "jshint": "*",
+    "grunt-contrib-cssmin": "~0.4.1"
+  }
+}

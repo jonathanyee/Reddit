@@ -3,6 +3,10 @@ ul {
   padding: 0;
 }
 
+li {
+  margin-bottom: 10px;
+}
+
 img {
   max-height: 480px;
   max-width: 640px;
