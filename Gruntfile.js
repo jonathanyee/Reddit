@@ -56,17 +56,17 @@ module.exports = function(grunt) {
     handlebars: {
       compile: {
         options: {
-          namespace: 'Reddit',
+          namespace: 'Template',
           wrapped: true
         },
         files: {
-          'libs/templates.js': 'templates/*.handlebars'
+          'libs/handlebars_templates.js': 'templates/*.handlebars'
         }
       }
     },
     watch: {
       scripts: {
-        files: ['index.html', 'libs/*.js', 'styles/*.css'],
+        files: ['index.html', 'libs/*.js', 'styles/*.css', 'Gruntfile.js'],
         tasks: ['default'],
         options: {
           nospawn: true

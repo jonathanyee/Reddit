@@ -1,6 +1,6 @@
-this["Reddit"] = this["Reddit"] || {};
+this["Template"] = this["Template"] || {};
 
-this["Reddit"]["templates/post.handlebars"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["Template"]["templates/post.handlebars"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Handlebars.helpers; data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
@@ -22,7 +22,7 @@ helpers = helpers || Handlebars.helpers; data = data || {};
   return buffer;
   });
 
-this["Reddit"]["templates/postimage.handlebars"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["Template"]["templates/postimage.handlebars"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Handlebars.helpers; data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
@@ -48,7 +48,7 @@ helpers = helpers || Handlebars.helpers; data = data || {};
   return buffer;
   });
 
-this["Reddit"]["templates/posttext.handlebars"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["Template"]["templates/posttext.handlebars"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Handlebars.helpers; data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
@@ -74,7 +74,7 @@ helpers = helpers || Handlebars.helpers; data = data || {};
   return buffer;
   });
 
-this["Reddit"]["templates/postyoutube.handlebars"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["Template"]["templates/postyoutube.handlebars"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Handlebars.helpers; data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
